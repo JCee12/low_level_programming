@@ -1,30 +1,53 @@
 #include "main.h"
+#include <stdio.h>
+
+#define true 1
+#define false 0
+#define bool int
 
 /**
- * _strstr - locates a substring
- * @haystack: string to be checked
+ * _strstr - locates a substring 
+ * @haystack: string to check
  * @needle: substring
  * Return: pointer or NULL
  */
 
 char *_strstr(char *haystack, char *needle)
 {
-	char *b;
-	char *p;
+	char *start = haystack;
+	char *_needle = needle;
+	bool found = false;
 
-	while (*haystack != '\0')
+	if (!*_needle)
+		return (haystack);
+
+	while (*haystack)
 	{
-		b = haystack;
-		p = needle;
-
-		while (*b != '\0' && *p != '\0' && *b == *p)
+		if (*haystack == *needle)
 		{
-			b++;
-			p++;
+			found = true;
+			start = haystack;
+			while (*_needle)
+			{
+				if (*haystack != *_needle)
+				{
+					found = false;
+					_needle = needle;
+					break;
+				}
+				haystack++;
+				_needle;
+			}
 		}
-		if (!*p)
-			return (b);
-		haystack = b + 1;
+		if (found)
+		{
+			break;
+		}
+		haystack++;
 	}
-	return (0);
+	if (found)
+	{
+		return (start);
+	}
+	return (NULL);
 }

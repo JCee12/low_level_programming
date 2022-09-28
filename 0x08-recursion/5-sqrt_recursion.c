@@ -1,30 +1,25 @@
 #include "main.h"
 
 /**
- * _sqrt_recursion - returns the sqrt of the number
- * @n: number
- * Return: sqrt
+ * _evaluate - evaluate function sqrt
+ * @i: integer
+ * @n: integer
+ * Return: evaluate sqrt
  */
 
-int _sqrt_recursion(int n)
+int _evaluate(int i, int n)
 {
-	if (n < 0)
-		return (-1);
-	return (real_root(n, 0));
-}
+	/* Evaluate function */
+	if (n == 0 || n == 1)
+		return (n);
 
-/**
- * real_root - finds the natural sqrt of a number
- * @n: input
- * @i: counter
- * Return: sqrt
- */
+	else if (i * i < n)
+		return (_evaluate(i + 1, n));
 
-int _real_root(int n, int i)
-{
-	if (i * i > n)
-		return (-1);
-	if (i * i == n)
+	else if (i * i == n) /* condition base*/
 		return (i);
-	return (real_root(n, i + 1));
+
+	return (-1);
+
+	return (-1);
 }

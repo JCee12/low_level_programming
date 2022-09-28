@@ -1,25 +1,32 @@
 #include "main.h"
 
 /**
- * _evaluate - evaluate function sqrt
- * @i: integer
- * @n: integer
- * Return: evaluate sqrt
+ * sqrt_a - entry point
+ * @a: input
+ * @b: input
+ * Return: 0
  */
 
-int _evaluate(int i, int n)
+int sqrt_a(int a, int b)
 {
-	/* Evaluate function */
-	if (n == 0 || n == 1)
-		return (n);
+	if (b * b == a)
+	{
+		return (b);
+	}
+	else if (b * b > a)
+	{
+		return (-1);
+	}
+	return (sqrt_a(a, b + 1));
+}
 
-	else if (i * i < n)
-		return (_evaluate(i + 1, n));
+/**
+ * _sqrt_recursion - entry point
+ * @n: input
+ * Return: 0
+ */
 
-	else if (i * i == n) /* condition base*/
-		return (i);
-
-	return (-1);
-
-	return (-1);
+int _sqrt_recursion(int n)
+{
+	return (sqrt_a(n, 0));
 }

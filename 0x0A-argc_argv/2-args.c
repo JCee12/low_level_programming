@@ -1,21 +1,19 @@
 #include <stdio.h>
-#include <stdlib.h>
 
 /**
  * main - write a program that prints all arguments it receives
- * All arguments should be printed, including the first one
- * Only print one argument per line, ending with a new line
- * @argc: the number of arguments
- * @argv: array of arguments
- * Return: 0
+ * @argc: input
+ * @argv: input
+ * Return: Always 0 (success)
  */
 
 int main(int argc, char *argv[])
 {
-	int n;
-	for (n = 0; n < argc; n++)
+	int i;
+
+	for (i = 0; i < argc; i++)
 	{
-		printf("%s\n", argv[n]);
+		printf("%s\n", argv[i]);
 	}
 	return (0);
 }

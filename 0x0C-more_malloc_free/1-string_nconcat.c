@@ -2,11 +2,11 @@
 #include <stdlib.h>
 
 /**
- * string_nconcat - write a function that concatenates two strings
- * @s1: input
- * @s2: input
- * @n: input
- * Return: 0
+ * string_nconcat - concatenates two strings
+ * @s1: first string
+ * @s2: second string
+ * @n: number of bytes of s2 to copy
+ * Return: pointer
  */
 
 char *string_nconcat(char *s1, char *s2, unsigned int n)
@@ -18,13 +18,15 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		i = 0;
 	else
 	{
-		for (i = 0; s1[i]; i++);
+		for (i = 0; s1[i]; i++)
+			;
 	}
 	if (s2 == NULL)
 		j = 0;
 	else
 	{
-		for (j = 0; s2[j]; j++);
+		for (j = 0; s2[j]; j++)
+			;
 	}
 	if (j > n)
 		j = n;
